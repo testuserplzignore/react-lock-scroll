@@ -1,6 +1,7 @@
 {
   "name": "react-lock-scroll",
-  "version": "0.1.2",
+  "description": "A react hook for locking scroll on mount or on toggle",
+  "version": "0.1.5",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
@@ -8,6 +9,12 @@
     "demo": "node scripts/demo.js",
     "test": "node scripts/test.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElllGeeEmm/react-lock-scroll"
+  },
+  "homepage": "https://github.com/ElllGeeEmm/react-lock-scroll",
+  "keywords": ["React", "scroll", "lock", "scroll-lock"],
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
