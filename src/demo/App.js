@@ -1,12 +1,31 @@
-import React from 'react';
-import Example from '../lib';
-import { SecondExample } from '../lib';
+import React, { useState, useRef } from 'react';
+import lockScroll from "../lib"
 
-const App = () => (
-  <div>
-    <Example />
-    <SecondExample />
-  </div>
-);
+const LockDiv = () => {
+  lockScroll();
+  return (
+    <div>
+      locked
+    </div>
+  )
+}
+
+
+const App = () => {
+  const ref = useRef();
+  const [lock, setLock] = useState(false)
+  lockScroll(lock);
+  
+  return (
+    <div ref={ref}>
+      <div style={{ height: "300vh" }}>
+        <button onClick={() => setLock(!lock)}>Lock</button>
+        {/* {lock &&
+        <LockDiv />
+      } */}
+      </div>
+    </div>
+  )
+};
 
 export default App;

@@ -1,8 +1,4 @@
-import Example from './components/Example';
-import SecondExample from './components/SecondExample';
+import lockScroll from './components/lockScroll';
 
-export default Example;
 
-export {
-  SecondExample,
-};
+export default lockScroll;
