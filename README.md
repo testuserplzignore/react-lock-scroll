@@ -1,38 +1,59 @@
 This project was bootstrapped with [Create React Library](https://github.com/dimimikadze/create-react-library).
 
-All library files are located inside **src/lib** folder.
+# Install
 
-Inside **src/demo** folder, you can test your library while developing.
+`npm i react-lock-scroll`
 
-## Available Scripts
+es6
+`import lockScroll from "react-lock-scroll;"`
 
-In the project directory, you can run:
+es5
+`const lockScroll = require("react-lock-scroll");`
 
-### `npm start` or `yarn start`
+# Usage
 
-Runs the library in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## default
 
-### `npm run test` or `yarn run test`
+By default, react-lock-scroll will lock the document body when the component where it is called is mounted, and unlock the document body when that component is dismounted.
 
-Runs the test watcher in an interactive mode.
+ex:
+```
+export default (props) => {
+  lockScroll();
+  return (
+    ...
+```
 
-### `npm run build` or `yarn build`
+## First argument: toggle
 
-Builds the library for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+lockScroll can also be passed a boolean state value, and will lock the screen on true and unlock it on false.
 
-### `npm publish`
+ex:
+```
+export default (props) => {
+  [toggle, setToggle] = useState(false);
+  lockScroll(toggle)
+  return <button onClick={()=>setToggle(!toggle}>Lock Scrolling</button>
+}
+```
 
-Publishes the library to NPM.
+## Second argument: target
 
-## Typescript
+finally lockScroll can be passed the ref of a target div to lock scrolling on. This also supports passing of a boolean state value for a toggle, however if you simply want it to lock on mount/dismount, pass `true` as the first argument. Note that this will likely require the use of [forwardRef](https://reactjs.org/docs/forwarding-refs.html) to construct this component if the DOM node is outside of the component where lockScroll is called.
 
-[Adding Typescript support](https://gist.github.com/DimiMikadze/f25e1c5c70fa003953afd40fa9042517)
-
-## Troubleshooting
-
-### Usage of other libraries within your library
-
-- Add the library as a peer dependency in package.json (effectively requiring the calling project to provide this dependency)
-- Add the library as a dev dependency in package.json (effectively allowing this library to successfully build without complaining about not having this dependency)
-- Add the library to the externals config in your webpack.config file(s). By default, only react and react-dom are there, meaning that those are the only two libraries that you can use within your new shared library.
+ex.
+```
+export default (props) => {
+  const ref = useRef();
+  const [lock, setLock] = useState(false)
+  lockScroll(lock, ref);
+  
+  return (
+    <div className="divThatScrolls" ref={ref}>
+      <div>
+        <button onClick={() => setLock(!lock)}>Lock</button>
+      </div>
+    </div>
+  )
+};
+```
