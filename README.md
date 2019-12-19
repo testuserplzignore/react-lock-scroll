@@ -57,7 +57,7 @@ export default (props) => {
   )
 };
 ```
-## last argument: styles default={false}
+## last argument: styles (default=false)
 
 include a valid style object with styles you want to be applied to the locked div when it's locked. Useful for adjusting for scroll bars.
 

@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
+import { useEffect } from 'react';
 
 export default (bool = true, ref = false, style = false) => {
   const target = ref ? ref.current : document.body;
   
-
   useEffect(() => {
     if (!!target) {
       target.style.overflow = bool ? "hidden" : "";
@@ -23,5 +22,5 @@ export default (bool = true, ref = false, style = false) => {
         }
       };
     }
-  }, [bool, target]);
+  }, [bool, target, style]);
 }
