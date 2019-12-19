@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.target {
+.divThatScrolls {
   height: 100vh;
   overflow: scroll;
 }
