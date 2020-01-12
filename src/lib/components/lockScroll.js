@@ -14,8 +14,6 @@ export default (...args) => {
       style = arg;
     }
   })
-
-  console.log(bool, ref, style);
   
   const target = ref ? ref.current : document.body;
   
