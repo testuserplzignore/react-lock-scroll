@@ -39,7 +39,7 @@ export default (props) => {
 
 ## Second argument: target (default=false)
 
-LockScroll can be passed the ref of a target div to lock scrolling on. This also supports passing of a boolean state value for a toggle, however if you simply want it to lock on mount/dismount, pass `true` as the first argument. Note that this will likely require the use of [forwardRef](https://reactjs.org/docs/forwarding-refs.html) to construct this component if the DOM node is outside of the component where lockScroll is called.
+LockScroll can be passed the ref of a target div to lock scrolling on. This also supports passing of a boolean state value for a toggle, however if you simply want it to lock on mount/dismount, you can just pass it a ref to the div that has overflow: scroll set. Note that this will likely require the use of [forwardRef](https://reactjs.org/docs/forwarding-refs.html) to construct this component if the DOM node is outside of the component where lockScroll is called.
 
 ex.
 ```
@@ -63,11 +63,11 @@ include a valid style object with styles you want to be applied to the locked di
 
 ```
 export default (props) => {
-  lockScroll(true, false, {margin: "15px"});
+  lockScroll({margin: "15px"});
   
   return (
     <div>
-      I lock when mounted, and add 15px of margin to the body
+      when mounted, I lock and add 15px of margin to the body
     </div>
   )
 };

@@ -14,7 +14,7 @@ const LockDiv = () => {
 const App = () => {
   const ref = useRef();
   const [lock, setLock] = useState(false)
-  lockScroll(lock, ref, {backgroundColor: "blue", margin: "200px"});
+  lockScroll(lock, ref);
   
   return (
     <div className="divThatScrolls" ref={ref}>
