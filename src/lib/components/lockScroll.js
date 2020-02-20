@@ -15,9 +15,10 @@ export default (...args) => {
     }
   })
   
-  const target = ref ? ref.current : document.body;
-  
   useEffect(() => {
+
+    const target = ref ? ref.current : document.body;
+
     if (!!target) {
       target.style.overflow = bool ? "hidden" : "";
       if (style) {
